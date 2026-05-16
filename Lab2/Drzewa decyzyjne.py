@@ -48,17 +48,18 @@ for i in range (1,5):
 
     y_pred_tree = tree_model.predict(X_test)
     accuracy_tree = accuracy_score(y_test, y_pred_tree)
-    print("Dokładność modelu Random Forest:", accuracy_rf)
+    print("Głębokość: ", i)
+    print("Dokładność modelu Random Forest dla głębokości:", accuracy_rf)
     print("Raport klasyfikacji:\n", classification_report(y_test, y_pred_rf))
     print("Macierz konfuzji:\n", confusion_matrix(y_test, y_pred_rf))
 
 #3
-for i in range (50, 200, 25):
+for i in range (50, 201, 25):
     rf_model = RandomForestClassifier(n_estimators=100, random_state=42)
     rf_model.fit(X_train, y_train)
     y_pred_rf = rf_model.predict(X_test)
     accuracy_rf = accuracy_score(y_test, y_pred_rf)
-
+    print("Liczba drzew: ", i)
     print("Dokładność modelu Random Forest:", accuracy_rf)
     print("Raport klasyfikacji:\n", classification_report(y_test, y_pred_rf))
     print("Macierz konfuzji:\n", confusion_matrix(y_test, y_pred_rf))
